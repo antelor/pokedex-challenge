@@ -45,7 +45,7 @@ export default function Home() {
 				contentContainerStyle={styles.list}
 				renderItem={({ item }) => (
 					<PokemonCard
-						isLoading={isLoading}
+						isLoading={isLoading && pokemon.length === 0}
 						pokemon={item}
 						onPress={() =>
 							navigation.navigate("Detail", {

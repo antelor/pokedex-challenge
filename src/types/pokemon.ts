@@ -2,6 +2,7 @@ export interface PokemonListItem {
   id: number;
   name: string;
   image: string;
+  sprite: string;
 }
 
 export interface PokemonListResponse {

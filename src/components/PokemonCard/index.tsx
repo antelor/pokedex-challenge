@@ -6,6 +6,7 @@ import { PokemonListItem } from "../../types/pokemon";
 import { formatPokemonId } from "../../utils/format";
 
 import { styles } from "./styles";
+import ProgressiveImage from "./components";
 
 interface Props {
 	pokemon?: PokemonListItem;
@@ -21,11 +22,10 @@ export default function PokemonCard({
 	return (
 		<Pressable style={styles.card} onPress={onPress} disabled={isLoading}>
 			<SkeletonWrapper isLoading={isLoading}>
-				<Image
-					source={pokemon!.image}
+				<ProgressiveImage
+					lowRes={pokemon?.sprite}
+					highRes={pokemon?.image}
 					style={styles.image}
-					contentFit="contain"
-					transition={300}
 				/>
 			</SkeletonWrapper>
 
