@@ -23,14 +23,6 @@ export default function Home() {
 		isRefetching,
 	} = usePokemonList();
 
-	if (isLoading) {
-		return (
-			<SafeAreaView style={styles.center}>
-				<ActivityIndicator size="large" />
-			</SafeAreaView>
-		);
-	}
-
 	if (isError) {
 		return (
 			<SafeAreaView style={styles.center}>
@@ -53,6 +45,7 @@ export default function Home() {
 				contentContainerStyle={styles.list}
 				renderItem={({ item }) => (
 					<PokemonCard
+						isLoading={isLoading}
 						pokemon={item}
 						onPress={() =>
 							navigation.navigate("Detail", {

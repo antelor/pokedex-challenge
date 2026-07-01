@@ -4,16 +4,12 @@ export const styles = StyleSheet.create({
   card: {
     flexDirection: "row",
     alignItems: "center",
-    backgroundColor: "#FFFFFF",
+    backgroundColor: "#fff",
     borderRadius: 16,
     padding: 16,
     marginBottom: 12,
 
     shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
     shadowOpacity: 0.08,
     shadowRadius: 6,
     elevation: 2,
@@ -38,7 +34,26 @@ export const styles = StyleSheet.create({
   name: {
     fontSize: 20,
     fontWeight: "600",
-    color: "#222",
     textTransform: "capitalize",
+  },
+
+  // skeleton blocks
+  skeletonImage: {
+    width: 80,
+    height: 80,
+    borderRadius: 40,
+  },
+
+  skeletonId: {
+    width: 48,
+    height: 12,
+    borderRadius: 6,
+    marginBottom: 8,
+  },
+
+  skeletonName: {
+    width: 110,
+    height: 20,
+    borderRadius: 6,
   },
 });
