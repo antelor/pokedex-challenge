@@ -6,6 +6,9 @@ import { RootStackParamList } from "../../navigation";
 import { usePokemonList } from "../../hooks/usePokemonList";
 import { styles } from "./styles";
 import PokemonCard from "../../components/PokemonCard";
+import { useCallback } from "react";
+import { PokemonListItem } from "../../types/pokemon";
+import PokemonCardSkeleton from "../../components/PokemonCard/Skeleton";
 
 export default function Home() {
 	const navigation =
@@ -22,6 +25,30 @@ export default function Home() {
 		refetch,
 		isRefetching,
 	} = usePokemonList();
+
+	const renderItem = useCallback(
+		({ item }: { item: PokemonListItem }) => {
+			return (
+				<PokemonCard
+					pokemon={item}
+					onPress={() => navigation.navigate("Detail", { id: item.id })}
+				/>
+			);
+		},
+		[navigation],
+	);
+
+	if (isLoading) {
+		return (
+			<SafeAreaView style={styles.container}>
+				<FlatList
+					data={Array.from({ length: 12 })}
+					keyExtractor={(_, i) => String(i)}
+					renderItem={() => <PokemonCardSkeleton />}
+				/>
+			</SafeAreaView>
+		);
+	}
 
 	if (isError) {
 		return (
@@ -43,17 +70,7 @@ export default function Home() {
 				data={pokemon}
 				keyExtractor={(item) => item.id.toString()}
 				contentContainerStyle={styles.list}
-				renderItem={({ item }) => (
-					<PokemonCard
-						isLoading={isLoading && pokemon.length === 0}
-						pokemon={item}
-						onPress={() =>
-							navigation.navigate("Detail", {
-								id: item.id,
-							})
-						}
-					/>
-				)}
+				renderItem={renderItem}
 				onEndReached={() => {
 					if (hasNextPage && !isFetchingNextPage) {
 						fetchNextPage();

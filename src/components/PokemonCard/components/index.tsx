@@ -43,3 +43,4 @@ export default function ProgressiveImage({ lowRes, highRes, style }: Props) {
 		/>
 	);
 }
+

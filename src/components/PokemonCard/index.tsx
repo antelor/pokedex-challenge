@@ -1,43 +1,30 @@
+import React from "react";
 import { Pressable, Text, View } from "react-native";
-import { Image } from "expo-image";
-
-import SkeletonWrapper from "../SkeletonWrapper";
 import { PokemonListItem } from "../../types/pokemon";
 import { formatPokemonId } from "../../utils/format";
-
 import { styles } from "./styles";
 import ProgressiveImage from "./components";
 
 interface Props {
-	pokemon?: PokemonListItem;
-	isLoading?: boolean;
-	onPress?: () => void;
+  pokemon: PokemonListItem;
+  onPress?: () => void;
 }
 
-export default function PokemonCard({
-	pokemon,
-	isLoading = false,
-	onPress,
-}: Props) {
-	return (
-		<Pressable style={styles.card} onPress={onPress} disabled={isLoading}>
-			<SkeletonWrapper isLoading={isLoading}>
-				<ProgressiveImage
-					lowRes={pokemon?.sprite}
-					highRes={pokemon?.image}
-					style={styles.image}
-				/>
-			</SkeletonWrapper>
+function PokemonCard({ pokemon, onPress }: Props) {
+  return (
+    <Pressable style={styles.card} onPress={onPress}>
+      <ProgressiveImage
+        lowRes={pokemon.sprite}
+        highRes={pokemon.image}
+        style={styles.image}
+      />
 
-			<View style={styles.info}>
-				<SkeletonWrapper isLoading={isLoading}>
-					<Text style={styles.id}>{formatPokemonId(pokemon!.id)}</Text>
-				</SkeletonWrapper>
-
-				<SkeletonWrapper isLoading={isLoading}>
-					<Text style={styles.name}>{pokemon!.name}</Text>
-				</SkeletonWrapper>
-			</View>
-		</Pressable>
-	);
+      <View style={styles.info}>
+        <Text style={styles.id}>{formatPokemonId(pokemon.id)}</Text>
+        <Text style={styles.name}>{pokemon.name}</Text>
+      </View>
+    </Pressable>
+  );
 }
+
+export default React.memo(PokemonCard);

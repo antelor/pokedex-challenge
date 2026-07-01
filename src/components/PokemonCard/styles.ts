@@ -14,46 +14,58 @@ export const styles = StyleSheet.create({
     shadowRadius: 6,
     elevation: 2,
   },
-
   image: {
     width: 80,
     height: 80,
   },
-
   info: {
     flex: 1,
     marginLeft: 16,
   },
-
   id: {
     fontSize: 13,
     color: "#888",
     marginBottom: 4,
   },
-
   name: {
     fontSize: 20,
     fontWeight: "600",
     textTransform: "capitalize",
   },
 
-  // skeleton blocks
   skeletonImage: {
     width: 80,
     height: 80,
     borderRadius: 40,
   },
-
   skeletonId: {
     width: 48,
     height: 12,
     borderRadius: 6,
     marginBottom: 8,
   },
-
   skeletonName: {
     width: 110,
     height: 20,
     borderRadius: 6,
+  },
+  imageSkeleton: {
+    width: 80,
+    height: 80,
+    borderRadius: 8,
+    backgroundColor: "#E5E7EB",
+  },
+  textSkeleton: {
+    width: "70%",
+    height: 12,
+    borderRadius: 4,
+    backgroundColor: "#E5E7EB",
+    marginBottom: 6,
+  },
+  textSkeletonSmall: {
+    width: "40%",
+    height: 12,
+    borderRadius: 4,
+    backgroundColor: "#E5E7EB",
   },
 });
