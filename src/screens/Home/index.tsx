@@ -9,6 +9,9 @@ import PokemonCard from "../../components/PokemonCard";
 import { useCallback } from "react";
 import { PokemonListItem } from "../../types/pokemon";
 import PokemonCardSkeleton from "../../components/PokemonCard/Skeleton";
+import HomeError from "./components/HomeError";
+import HomeLoading from "./components/HomeLoading";
+import HomeEmpty from "./components/HomeEmpty";
 
 export default function Home() {
 	const navigation =
@@ -39,30 +42,18 @@ export default function Home() {
 	);
 
 	if (isLoading) {
-		return (
-			<SafeAreaView style={styles.container}>
-				<FlatList
-					data={Array.from({ length: 12 })}
-					keyExtractor={(_, i) => String(i)}
-					renderItem={() => <PokemonCardSkeleton />}
-				/>
-			</SafeAreaView>
-		);
+		return <HomeLoading />;
 	}
 
 	if (isError) {
-		return (
-			<SafeAreaView style={styles.center}>
-				<Text style={styles.errorText}>
-					{error instanceof Error
-						? error.message
-						: "Something went wrong while loading Pokémon."}
-				</Text>
-			</SafeAreaView>
-		);
+		return <HomeError error={error} />;
 	}
 
 	const pokemon = data?.pages.flatMap((page) => page.pokemon) ?? [];
+
+	if (!isLoading && pokemon.length === 0) {
+		return <HomeEmpty />;
+	}
 
 	return (
 		<View style={styles.container}>

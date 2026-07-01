@@ -56,4 +56,15 @@ export const styles = StyleSheet.create({
     color: "#D32F2F",
     fontSize: 16,
   },
+  emptyTitle: {
+    fontSize: 18,
+    fontWeight: "600",
+    marginBottom: 6,
+    textAlign: "center",
+  },
+  emptySubtitle: {
+    fontSize: 14,
+    color: "#6B7280",
+    textAlign: "center",
+  },
 });
