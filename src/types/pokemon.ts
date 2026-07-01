@@ -1,5 +1,11 @@
+export interface PokemonListItem {
+  id: number;
+  name: string;
+  image: string;
+}
+
 export interface PokemonListResponse {
-  pokemon: Pokemon[];
+  pokemon: PokemonListItem[];
   next: string | null;
 }
 
