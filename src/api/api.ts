@@ -5,6 +5,7 @@ import {
   PokemonListItem,
   PokemonListResponse,
 } from "../types/pokemon";
+import { getPokemonId } from "../utils/api";
 
 const api = axios.create({
   baseURL: "https://pokeapi.co/api/v2",
@@ -25,7 +26,7 @@ export async function getPokemonPage(
 
   const pokemon: PokemonListItem[] = data.results.map(
     (item: { name: string; url: string }) => {
-      const id = Number(item.url.split("/").filter(Boolean).pop());
+      const id = getPokemonId(item.url);
 
       return {
         id,
