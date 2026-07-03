@@ -1,15 +1,20 @@
 import { NavigationContainer } from "@react-navigation/native";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { SafeAreaProvider } from "react-native-safe-area-context";
-
+import { PersistQueryClientProvider } from "@tanstack/react-query-persist-client";
 import Navigation from "./src/navigation";
 import { FavoritesProvider } from "./src/context/FavoritesContext";
-
-const queryClient = new QueryClient();
+import { queryClient } from "./src/query/queryClient";
+import { persister } from "./src/query/persister";
 
 export default function App() {
 	return (
-		<QueryClientProvider client={queryClient}>
+		<PersistQueryClientProvider
+			client={queryClient}
+			persistOptions={{
+				persister,
+				maxAge: 1000 * 60 * 60 * 24 * 7,
+			}}
+		>
 			<FavoritesProvider>
 				<SafeAreaProvider>
 					<NavigationContainer>
@@ -17,6 +22,6 @@ export default function App() {
 					</NavigationContainer>
 				</SafeAreaProvider>
 			</FavoritesProvider>
-		</QueryClientProvider>
+		</PersistQueryClientProvider>
 	);
 }
