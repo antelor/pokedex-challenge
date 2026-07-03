@@ -1,17 +1,16 @@
-import { ActivityIndicator, FlatList, Text, View } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
 import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
-import { RootStackParamList } from "../../navigation";
-import { usePokemonList } from "../../hooks/usePokemonList";
-import { styles } from "./styles";
-import PokemonCard from "../../components/PokemonCard";
 import { useCallback } from "react";
+import { ActivityIndicator, FlatList, View } from "react-native";
+import PokemonCard from "../../components/PokemonCard";
+import { usePokemonList } from "../../hooks/usePokemonList";
+import { RootStackParamList } from "../../navigation";
 import { PokemonListItem } from "../../types/pokemon";
-import PokemonCardSkeleton from "../../components/PokemonCard/Skeleton";
+import HomeEmpty from "./components/HomeEmpty";
 import HomeError from "./components/HomeError";
 import HomeLoading from "./components/HomeLoading";
-import HomeEmpty from "./components/HomeEmpty";
+import { styles } from "./styles";
+import { useFavorites } from "../../hooks/useFavorites";
 
 export default function Home() {
 	const navigation =
@@ -29,16 +28,15 @@ export default function Home() {
 		isRefetching,
 	} = usePokemonList();
 
-	const renderItem = useCallback(
-		({ item }: { item: PokemonListItem }) => {
-			return (
-				<PokemonCard
-					pokemon={item}
-					onPress={() => navigation.navigate("Detail", { id: item.id })}
-				/>
-			);
-		},
-		[navigation],
+	const { isFavorite, toggleFavorite } = useFavorites();
+
+	const renderItem = ({ item }: { item: PokemonListItem }) => (
+		<PokemonCard
+			pokemon={item}
+			onPress={() => navigation.navigate("Detail", { id: item.id })}
+			isFavorite={isFavorite(item.id)}
+			onToggleFavorite={toggleFavorite}
+		/>
 	);
 
 	if (isLoading) {

@@ -68,4 +68,11 @@ export const styles = StyleSheet.create({
     borderRadius: 4,
     backgroundColor: "#E5E7EB",
   },
+  favoriteButton: {
+    position: "absolute",
+    top: 8,
+    right: 8,
+    zIndex: 1,
+    padding: 4,
+  },
 });

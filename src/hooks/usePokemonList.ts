@@ -1,6 +1,5 @@
 import { useInfiniteQuery } from "@tanstack/react-query";
-
-import { getPokemonPage, PAGE_SIZE } from "../api/api";
+import { getPokemonPage, PAGE_SIZE } from "../services/pokemon";
 
 export function usePokemonList() {
   return useInfiniteQuery({

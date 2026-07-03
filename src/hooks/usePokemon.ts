@@ -1,6 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-
-import { getPokemon } from "../api/api";
+import { getPokemon } from "../services/pokemon";
 
 export function usePokemon(id: number) {
   return useQuery({
