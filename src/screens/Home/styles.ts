@@ -31,25 +31,6 @@ export const styles = StyleSheet.create({
     shadowRadius: 6,
     elevation: 2,
   },
-  image: {
-    width: 80,
-    height: 80,
-  },
-  info: {
-    marginLeft: 16,
-    flex: 1,
-  },
-  id: {
-    fontSize: 14,
-    color: "#888",
-    marginBottom: 4,
-  },
-  name: {
-    fontSize: 20,
-    fontWeight: "600",
-    color: "#222",
-    textTransform: "capitalize",
-  },
   footerLoader: {
     marginVertical: 20,
   },
@@ -68,4 +49,10 @@ export const styles = StyleSheet.create({
     color: "#6B7280",
     textAlign: "center",
   },
+  btns: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginRight: 16,
+  }
 });

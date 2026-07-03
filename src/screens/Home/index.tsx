@@ -13,6 +13,7 @@ import HomeError from "./components/HomeError";
 import HomeLoading from "./components/HomeLoading";
 import { styles } from "./styles";
 import HomeSearchEmpty from "./components/HomeSearchEmpty";
+import RandomPokemonButton from "../../components/RandomPokemonButton";
 
 export default function Home() {
 	const [search, setSearch] = useState("");
@@ -31,6 +32,8 @@ export default function Home() {
 		refetch,
 		isRefetching,
 	} = usePokemonList();
+
+	const maxPokemonId = data?.pages[0].count || 1025;
 
 	const { isFavorite, toggleFavorite } = useFavorites();
 
@@ -82,7 +85,10 @@ export default function Home() {
 
 	return (
 		<View style={styles.container}>
-			<SearchBar value={search} onChangeText={setSearch} />
+			<View style={styles.btns}>
+				<SearchBar value={search} onChangeText={setSearch} />
+				<RandomPokemonButton maxPokemonId={maxPokemonId} />
+			</View>
 
 			<FlatList
 				data={listData}
