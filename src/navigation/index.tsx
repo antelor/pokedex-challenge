@@ -30,6 +30,8 @@ export default function Navigation() {
 				name="Detail"
 				component={Detail}
 				options={{
+					  headerTransparent: true,
+
 					header: (props) => <PokemonDetailHeader {...props} />,
 				}}
 			/>

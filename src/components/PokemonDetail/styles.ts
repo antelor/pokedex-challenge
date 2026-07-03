@@ -17,8 +17,8 @@ export const styles = StyleSheet.create({
     width: 220,
     height: 220,
     alignSelf: "center",
-    marginBottom: 16,
-    transform: [{ translateY: 24 }],
+    marginBottom: 100,
+    transform: [{ translateY: 110 }],
   },
   section: {
     marginBottom: 12,
@@ -51,7 +51,7 @@ export const styles = StyleSheet.create({
     top: 0,
     left: 0,
     right: 0,
-    height: 210,
+    height: 300,
     borderBottomLeftRadius: 32,
     borderBottomRightRadius: 32,
   },
@@ -129,5 +129,13 @@ export const styles = StyleSheet.create({
     backgroundColor: "#e5e7eb",
     paddingHorizontal: 12,
     borderRadius: 16,
-  }
+  },
+  pokeball: {
+    position: "absolute",
+    right: 0,
+    bottom: 0,
+    width: 270,
+    height: 270,
+    opacity: 0.07,
+  },
 });

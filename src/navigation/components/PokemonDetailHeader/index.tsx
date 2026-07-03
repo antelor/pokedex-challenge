@@ -1,9 +1,9 @@
-import { Pressable, Text, View } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { NativeStackHeaderProps } from "@react-navigation/native-stack";
-import { styles } from "./styles";
+import { Pressable, Text, View } from "react-native";
 import { usePokemon } from "../../../hooks/usePokemon";
-import { formatPokemonId, getPokemonTypeColor } from "../../../utils/format";
+import { formatPokemonId } from "../../../utils/format";
+import { styles } from "./styles";
 
 export default function PokemonDetailHeader({
 	navigation,
@@ -13,12 +13,8 @@ export default function PokemonDetailHeader({
 
 	const { data: pokemon } = usePokemon(id);
 
-	const backgroundColor = pokemon
-		? getPokemonTypeColor(pokemon.types[0].type.name)
-		: "#666";
-
 	return (
-		<View style={[styles.container, { backgroundColor }]}>
+		<View style={[styles.container]}>
 			<Pressable onPress={navigation.goBack}>
 				<Ionicons name="arrow-back" size={28} color="white" />
 			</Pressable>
