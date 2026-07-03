@@ -27,7 +27,7 @@ export default function Detail({ route }: Props) {
 			<ScrollView contentContainerStyle={styles.content}>
 				<PokemonDetail pokemon={data}>
 					<PokemonDetail.Background />
-					<PokemonDetail.Header />
+					<PokemonDetail.Image />
 					<PokemonDetail.Types />
 					<PokemonDetail.About />
 					<PokemonDetail.Stats />

@@ -5,11 +5,11 @@ import { styles } from "./styles";
 
 interface Props {
 	isFavorite: boolean;
-	onPress: () => void;
+	onPress?: () => void;
 	size?: number;
 }
 
-export default function FavoriteButton({
+export default function FavoriteIcon({
 	isFavorite,
 	onPress,
 	size = 28,
@@ -19,6 +19,8 @@ export default function FavoriteButton({
 			style={styles.container}
 			hitSlop={10}
 			onPress={(e) => {
+				if (!onPress) return;
+
 				e.stopPropagation();
 				onPress();
 			}}

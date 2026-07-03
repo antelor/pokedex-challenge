@@ -3,7 +3,7 @@ import React from "react";
 import { Pressable, Text, View } from "react-native";
 import { PokemonListItem } from "../../types/pokemon";
 import { formatPokemonId } from "../../utils/format";
-import FavoriteButton from "../FavoriteButton";
+import FavoriteIcon from "../FavoriteIcon";
 import { styles } from "./styles";
 interface Props {
 	pokemon: PokemonListItem;
@@ -20,7 +20,7 @@ function PokemonCard({
 }: Props) {
 	return (
 		<Pressable style={styles.card} onPress={() => onPress(pokemon.id)}>
-			<FavoriteButton
+			<FavoriteIcon
 				isFavorite={!!isFavorite}
 				size={36}
 				onPress={() => onToggleFavorite?.(pokemon)}

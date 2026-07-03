@@ -16,8 +16,8 @@ export const styles = StyleSheet.create({
     width: 220,
     height: 220,
     alignSelf: "center",
-    marginBottom: 24,
-    transform: [{ translateY: 20 }],
+    marginBottom: 16,
+    transform: [{ translateY: 24 }],
   },
   section: {
     marginBottom: 12,
@@ -45,25 +45,12 @@ export const styles = StyleSheet.create({
     textTransform: "capitalize",
     marginBottom: 8,
   },
-  statRow: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    marginBottom: 8,
-  },
-  statName: {
-    fontSize: 16,
-    textTransform: "capitalize",
-  },
-  statValue: {
-    fontSize: 16,
-    fontWeight: "600",
-  },
   heroBackground: {
     position: "absolute",
     top: 0,
     left: 0,
     right: 0,
-    height: 264,
+    height: 210,
     borderBottomLeftRadius: 32,
     borderBottomRightRadius: 32,
   },
@@ -97,4 +84,44 @@ export const styles = StyleSheet.create({
     fontSize: 13,
     color: "#888",
   },
+  statRow: {
+    marginBottom: 12,
+  },
+  statName: {
+    fontSize: 12,
+    fontWeight: "700",
+    marginBottom: 4,
+    textTransform: "uppercase",
+  },
+  statValue: {
+    fontSize: 12,
+    fontWeight: "700",
+    position: "absolute",
+    right: 0,
+    top: 18,
+  },
+  statBarContainer: {
+    height: 8,
+    backgroundColor: "#E5E7EB",
+    borderRadius: 999,
+    overflow: "hidden",
+  },
+  statBarFill: {
+    height: "100%",
+    borderRadius: 999,
+  },
+  typeContainer:{
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    marginVertical: 12
+  },
+  favContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    backgroundColor: "#e5e7eb",
+    paddingHorizontal: 12,
+    borderRadius: 16,
+  }
 });

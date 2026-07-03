@@ -2,6 +2,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import Tabs from "./Tabs";
 import Detail from "../screens/Detail";
+import PokemonDetailHeader from "./components/PokemonDetailHeader";
 
 export type RootStackParamList = {
 	Tabs: undefined;
@@ -29,8 +30,7 @@ export default function Navigation() {
 				name="Detail"
 				component={Detail}
 				options={{
-					headerBackTitle: "",
-					headerBackButtonDisplayMode: "minimal",
+					header: (props) => <PokemonDetailHeader {...props} />,
 				}}
 			/>
 		</Stack.Navigator>
