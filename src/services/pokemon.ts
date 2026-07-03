@@ -43,7 +43,23 @@ export async function getPokemonPage(
 }
 
 export async function getPokemon(id: number): Promise<Pokemon> {
-  const { data } = await api.get<Pokemon>(`/pokemon/${id}`);
+  const [{ data: pokemon }, { data: species }] = await Promise.all([
+    api.get<Pokemon>(`/pokemon/${id}`),
+    api.get(`/pokemon-species/${id}`),
+  ]);
 
-  return data;
+  const description =
+    species.flavor_text_entries
+      .find(
+        (entry: {
+          language: { name: string };
+          flavor_text: string;
+        }) => entry.language.name === "en"
+      )
+      ?.flavor_text.replace(/\f|\n/g, " ") ?? "";
+
+  return {
+    ...pokemon,
+    description,
+  };
 }

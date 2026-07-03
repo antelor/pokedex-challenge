@@ -30,7 +30,7 @@ export default function Types() {
 				<Text>
 					{isFavorite(pokemon.id) ? "Remove from" : "Add to"} favorites
 				</Text>
-				<FavoriteIcon isFavorite={!!isFavorite(pokemon.id)} size={36} />
+				<FavoriteIcon isFavorite={!!isFavorite(pokemon.id)} size={24} />
 			</Pressable>
 		</View>
 	);

@@ -13,7 +13,7 @@ export default function Stats() {
 
 			{pokemon.stats.map((stat) => {
 				const value = stat.base_stat;
-				const percent = Math.min(value / 255, 1);
+				const percent = Math.min(value / 180, 1);
 
 				return (
 					<View key={stat.stat.name} style={styles.statRow}>

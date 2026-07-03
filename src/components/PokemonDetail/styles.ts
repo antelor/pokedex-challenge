@@ -23,11 +23,6 @@ export const styles = StyleSheet.create({
   section: {
     marginBottom: 24,
   },
-  sectionTitle: {
-    fontSize: 20,
-    fontWeight: "600",
-    marginBottom: 12,
-  },
   row: {
     flexDirection: "row",
     flexWrap: "wrap",
@@ -120,14 +115,14 @@ export const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
-    marginVertical: 12
+    marginVertical: 12,
   },
   favContainer: {
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
     backgroundColor: "#e5e7eb",
-    paddingHorizontal: 12,
+    paddingHorizontal: 8,
     borderRadius: 16,
   },
   pokeball: {
@@ -137,5 +132,10 @@ export const styles = StyleSheet.create({
     width: 270,
     height: 270,
     opacity: 0.07,
+  },
+  description: {
+    fontSize: 16,
+    lineHeight: 24,
+    color: "#4B5563",
   },
 });

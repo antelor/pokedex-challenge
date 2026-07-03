@@ -14,7 +14,6 @@ export interface Pokemon {
   name: string;
   height: number;
   weight: number;
-
   sprites: {
     other: {
       "official-artwork": {
@@ -22,12 +21,10 @@ export interface Pokemon {
       };
     };
   };
-
   types: PokemonType[];
-
   stats: PokemonStat[];
-
   abilities: PokemonAbility[];
+  description: string;
 }
 
 export interface PokemonType {

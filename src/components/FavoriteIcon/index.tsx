@@ -18,11 +18,10 @@ export default function FavoriteIcon({
 		<Pressable
 			style={styles.container}
 			hitSlop={10}
+			disabled={!onPress}
 			onPress={(e) => {
-				if (!onPress) return;
-
 				e.stopPropagation();
-				onPress();
+				onPress?.();
 			}}
 		>
 			<Ionicons

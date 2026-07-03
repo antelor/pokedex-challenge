@@ -1,7 +1,6 @@
 import { Text, ScrollView } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
-
 import { RootStackParamList } from "../../navigation";
 import { usePokemon } from "../../hooks/usePokemon";
 import { styles } from "./styles";
@@ -30,6 +29,7 @@ export default function Detail({ route }: Props) {
 					<PokemonDetail.Image />
 					<PokemonDetail.Types />
 					<PokemonDetail.About />
+					<PokemonDetail.Description />
 					<PokemonDetail.Stats />
 				</PokemonDetail>
 			</ScrollView>

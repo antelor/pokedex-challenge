@@ -4,6 +4,7 @@ import Types from "./Types";
 import About from "./About";
 import Stats from "./Stats";
 import Background from "./Background";
+import Description from "./Description";
 
 export default Object.assign(PokemonDetail, {
   Background,
@@ -11,4 +12,5 @@ export default Object.assign(PokemonDetail, {
   Types,
   About,
   Stats,
+  Description
 });
