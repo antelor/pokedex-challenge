@@ -12,7 +12,7 @@ type Props = NativeStackScreenProps<RootStackParamList, "Detail">;
 export default function Detail({ route }: Props) {
 	const { id } = route.params;
 
-	const { data, isError, isLoading } = usePokemon(id);
+	const { data, isError } = usePokemon(id);
 
 	if (isError || !data) {
 		return (
