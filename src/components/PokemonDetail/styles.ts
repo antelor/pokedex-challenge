@@ -21,7 +21,7 @@ export const styles = StyleSheet.create({
     transform: [{ translateY: 110 }],
   },
   section: {
-    marginBottom: 12,
+    marginBottom: 24,
   },
   sectionTitle: {
     fontSize: 20,
