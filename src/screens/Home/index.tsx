@@ -1,8 +1,10 @@
 import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
-import { useCallback } from "react";
+import { useCallback, useMemo, useState } from "react";
 import { ActivityIndicator, FlatList, View } from "react-native";
 import PokemonCard from "../../components/PokemonCard";
+import SearchBar from "../../components/SearchBar";
+import { useFavorites } from "../../hooks/useFavorites";
 import { usePokemonList } from "../../hooks/usePokemonList";
 import { RootStackParamList } from "../../navigation";
 import { PokemonListItem } from "../../types/pokemon";
@@ -10,9 +12,10 @@ import HomeEmpty from "./components/HomeEmpty";
 import HomeError from "./components/HomeError";
 import HomeLoading from "./components/HomeLoading";
 import { styles } from "./styles";
-import { useFavorites } from "../../hooks/useFavorites";
 
 export default function Home() {
+	const [search, setSearch] = useState("");
+
 	const navigation =
 		useNavigation<NativeStackNavigationProp<RootStackParamList>>();
 
@@ -30,13 +33,23 @@ export default function Home() {
 
 	const { isFavorite, toggleFavorite } = useFavorites();
 
-	const renderItem = ({ item }: { item: PokemonListItem }) => (
-		<PokemonCard
-			pokemon={item}
-			onPress={() => navigation.navigate("Detail", { id: item.id })}
-			isFavorite={isFavorite(item.id)}
-			onToggleFavorite={toggleFavorite}
-		/>
+	const handleCardPress = useCallback(
+		(id: number) => {
+			navigation.navigate("Detail", { id });
+		},
+		[navigation],
+	);
+
+	const renderItem = useCallback(
+		({ item }: { item: PokemonListItem }) => (
+			<PokemonCard
+				pokemon={item}
+				onPress={handleCardPress}
+				isFavorite={isFavorite(item.id)}
+				onToggleFavorite={toggleFavorite}
+			/>
+		),
+		[handleCardPress, isFavorite, toggleFavorite],
 	);
 
 	if (isLoading) {
@@ -53,10 +66,22 @@ export default function Home() {
 		return <HomeEmpty />;
 	}
 
+	const filteredPokemon = useMemo(() => {
+		const query = search.trim().toLowerCase();
+
+		if (!query) {
+			return pokemon;
+		}
+
+		return pokemon.filter((item) => item.name.toLowerCase().includes(query));
+	}, [pokemon, search]);
+
 	return (
 		<View style={styles.container}>
+			<SearchBar value={search} onChangeText={setSearch} />
+
 			<FlatList
-				data={pokemon}
+				data={search.length === 0 ? pokemon : filteredPokemon}
 				keyExtractor={(item) => item.id.toString()}
 				contentContainerStyle={styles.list}
 				renderItem={renderItem}

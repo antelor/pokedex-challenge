@@ -8,7 +8,7 @@ import { styles } from "./styles";
 interface Props {
 	pokemon: PokemonListItem;
 	isFavorite?: boolean;
-	onPress?: () => void;
+	onPress: (id: number) => void;
 	onToggleFavorite?: (pokemon: PokemonListItem) => void;
 }
 
@@ -19,7 +19,7 @@ function PokemonCard({
 	isFavorite,
 }: Props) {
 	return (
-		<Pressable style={styles.card} onPress={onPress}>
+		<Pressable style={styles.card} onPress={() => onPress(pokemon.id)}>
 			<FavoriteButton
 				isFavorite={!!isFavorite}
 				size={36}
