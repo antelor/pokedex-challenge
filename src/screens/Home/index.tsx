@@ -12,6 +12,7 @@ import HomeEmpty from "./components/HomeEmpty";
 import HomeError from "./components/HomeError";
 import HomeLoading from "./components/HomeLoading";
 import { styles } from "./styles";
+import HomeSearchEmpty from "./components/HomeSearchEmpty";
 
 export default function Home() {
 	const [search, setSearch] = useState("");
@@ -76,12 +77,15 @@ export default function Home() {
 		return pokemon.filter((item) => item.name.toLowerCase().includes(query));
 	}, [pokemon, search]);
 
+	const hasSearch = search.trim().length > 0;
+	const listData = hasSearch ? filteredPokemon : pokemon;
+
 	return (
 		<View style={styles.container}>
 			<SearchBar value={search} onChangeText={setSearch} />
 
 			<FlatList
-				data={search.length === 0 ? pokemon : filteredPokemon}
+				data={listData}
 				keyExtractor={(item) => item.id.toString()}
 				contentContainerStyle={styles.list}
 				renderItem={renderItem}
@@ -98,6 +102,7 @@ export default function Home() {
 				}
 				refreshing={isRefetching}
 				onRefresh={refetch}
+				ListEmptyComponent={hasSearch ? <HomeSearchEmpty /> : null}
 			/>
 		</View>
 	);
