@@ -35,7 +35,13 @@ export default function About() {
 				<View style={styles.column}>
 					<View style={styles.valueContainer}>
 						{pokemon.abilities.map(({ ability }) => (
-							<Text key={ability.name} style={styles.value}>
+							<Text
+								key={ability.name}
+								style={styles.value}
+								numberOfLines={1}
+								adjustsFontSizeToFit
+								minimumFontScale={0.7}
+							>
 								{formatName(ability.name)}
 							</Text>
 						))}

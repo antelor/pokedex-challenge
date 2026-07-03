@@ -14,6 +14,7 @@ import HomeLoading from "./components/HomeLoading";
 import { styles } from "./styles";
 import HomeSearchEmpty from "./components/HomeSearchEmpty";
 import RandomPokemonButton from "../../components/RandomPokemonButton";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function Home() {
 	const [search, setSearch] = useState("");
@@ -84,7 +85,7 @@ export default function Home() {
 	const listData = hasSearch ? filteredPokemon : pokemon;
 
 	return (
-		<View style={styles.container}>
+		<SafeAreaView style={styles.container} edges={["bottom"]}>
 			<View style={styles.btns}>
 				<SearchBar value={search} onChangeText={setSearch} />
 				<RandomPokemonButton maxPokemonId={maxPokemonId} />
@@ -112,6 +113,6 @@ export default function Home() {
 				keyboardDismissMode="on-drag"
 				keyboardShouldPersistTaps="handled"
 			/>
-		</View>
+		</SafeAreaView>
 	);
 }

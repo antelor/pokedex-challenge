@@ -21,7 +21,11 @@ export const styles = StyleSheet.create({
     transform: [{ translateY: 110 }],
   },
   section: {
-    marginBottom: 24,
+    marginBottom: 12,
+    padding: 12,
+    borderRadius: 16,
+    borderWidth: 2,
+    borderColor: '#ebebeb'
   },
   row: {
     flexDirection: "row",

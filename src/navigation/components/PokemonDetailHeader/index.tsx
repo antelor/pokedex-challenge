@@ -4,17 +4,18 @@ import { Pressable, Text, View } from "react-native";
 import { usePokemon } from "../../../hooks/usePokemon";
 import { formatPokemonId } from "../../../utils/format";
 import { styles } from "./styles";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 export default function PokemonDetailHeader({
 	navigation,
 	route,
 }: NativeStackHeaderProps) {
 	const { id } = route.params as { id: number };
-
+	const insets = useSafeAreaInsets();
 	const { data: pokemon } = usePokemon(id);
 
 	return (
-		<View style={[styles.container]}>
+		<View style={[styles.container, { paddingTop: insets.top }]}>
 			<Pressable onPress={navigation.goBack}>
 				<Ionicons name="arrow-back" size={28} color="white" />
 			</Pressable>

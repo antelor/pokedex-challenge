@@ -8,6 +8,7 @@ import { RootStackParamList } from "../../navigation";
 import FavoritesEmpty from "./components/FavoritesEmpty";
 import Button from "../../components/Button";
 import DeleteFavButton from "../../components/DeleteFavButton";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function Favorites() {
 	const navigation =
@@ -22,7 +23,7 @@ export default function Favorites() {
 	}
 
 	return (
-		<View style={styles.container}>
+    <SafeAreaView style={styles.container} edges={["bottom"]}>
 			<FlatList
 				data={favorites}
 				keyExtractor={(item) => item.id.toString()}
@@ -45,6 +46,6 @@ export default function Favorites() {
 					/>
 				)}
 			/>
-		</View>
+		</SafeAreaView>
 	);
 }
