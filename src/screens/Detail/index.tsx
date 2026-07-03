@@ -26,9 +26,10 @@ export default function Detail({ route }: Props) {
 		<SafeAreaView style={styles.container} edges={["bottom"]}>
 			<ScrollView contentContainerStyle={styles.content}>
 				<PokemonDetail pokemon={data}>
+					<PokemonDetail.Background />
 					<PokemonDetail.Header />
 					<PokemonDetail.Types />
-					<PokemonDetail.Abilities />
+					<PokemonDetail.About />
 					<PokemonDetail.Stats />
 				</PokemonDetail>
 			</ScrollView>
