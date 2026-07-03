@@ -21,8 +21,8 @@ export const styles = StyleSheet.create({
   header:{
     justifyContent: "center",
     alignItems: "center",
-    marginBottom: 16,
-    marginTop: 4.,
+    marginBottom: 12,
+    marginTop: 4,
     paddingTop: 4
   }
 });

@@ -12,7 +12,7 @@ export const styles = StyleSheet.create({
     backgroundColor: "#F5F5F5",
   },
   list: {
-    padding: 16,
+    paddingHorizontal: 16,
   },
   card: {
     flexDirection: "row",
