@@ -5,6 +5,7 @@ import { formatPokemonId } from "../../utils/format";
 import { styles } from "./styles";
 import { Image } from "expo-image";
 import { Ionicons } from "@expo/vector-icons";
+import FavoriteButton from "../FavoriteButton";
 interface Props {
 	pokemon: PokemonListItem;
 	isFavorite?: boolean;
@@ -20,21 +21,11 @@ function PokemonCard({
 }: Props) {
 	return (
 		<Pressable style={styles.card} onPress={onPress}>
-			<Pressable
-				style={styles.favoriteButton}
-				onPress={(e) => {
-					e.stopPropagation();
-					console.log(pokemon)
-					onToggleFavorite?.(pokemon);
-				}}
-				hitSlop={10}
-			>
-				<Ionicons
-					name={isFavorite ? "heart" : "heart-outline"}
-					size={36}
-					color={isFavorite ? "#ef4444" : "#9ca3af"}
-				/>
-			</Pressable>
+			<FavoriteButton
+				isFavorite={!!isFavorite}
+				size={36}
+				onPress={() => onToggleFavorite?.(pokemon)}
+			/>
 
 			<Image
 				source={{ uri: pokemon.image }}
