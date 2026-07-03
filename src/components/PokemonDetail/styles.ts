@@ -11,6 +11,7 @@ export const styles = StyleSheet.create({
     fontWeight: "bold",
     textTransform: "capitalize",
     textAlign: "center",
+    marginBottom: 12
   },
   image: {
     width: 220,
@@ -64,13 +65,13 @@ export const styles = StyleSheet.create({
     justifyContent: "space-between",
   },
   divider: {
-    width: StyleSheet.hairlineWidth,
+    width: 2,
     backgroundColor: "#DDD",
     alignSelf: "stretch",
     marginHorizontal: 12,
   },
   valueContainer: {
-    height: 44,
+    height: 36,
     justifyContent: "center",
     alignItems: "center",
   },
@@ -84,25 +85,30 @@ export const styles = StyleSheet.create({
     fontSize: 13,
     color: "#888",
   },
+  statInfo: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    width: 50,
+  },
   statRow: {
+    flexDirection: "row",
+    alignItems: "center",
     marginBottom: 12,
   },
   statName: {
     fontSize: 12,
     fontWeight: "700",
-    marginBottom: 4,
     textTransform: "uppercase",
   },
   statValue: {
     fontSize: 12,
     fontWeight: "700",
-    position: "absolute",
-    right: 0,
-    top: 18,
   },
   statBarContainer: {
+    flex: 1,
     height: 8,
-    backgroundColor: "#E5E7EB",
+    marginLeft: 12,
     borderRadius: 999,
     overflow: "hidden",
   },

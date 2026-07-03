@@ -9,16 +9,20 @@ export default function Stats() {
 
 	return (
 		<View style={styles.section}>
-			<Text style={styles.sectionTitle}>Stats</Text>
+			<Text style={[styles.title, { color: typeColor }]}>Base stats</Text>
+
 			{pokemon.stats.map((stat) => {
 				const value = stat.base_stat;
 				const percent = Math.min(value / 255, 1);
 
 				return (
 					<View key={stat.stat.name} style={styles.statRow}>
-						<Text style={styles.statName}>
-							{formatStatName(stat.stat.name)}
-						</Text>
+						<View style={styles.statInfo}>
+							<Text style={styles.statName}>
+								{formatStatName(stat.stat.name)}
+							</Text>
+							<Text style={styles.statValue}>{value}</Text>
+						</View>
 
 						<View
 							style={[
@@ -36,7 +40,6 @@ export default function Stats() {
 								]}
 							/>
 						</View>
-						<Text style={styles.statValue}>{value}</Text>
 					</View>
 				);
 			})}
