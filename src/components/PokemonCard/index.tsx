@@ -20,24 +20,25 @@ function PokemonCard({
 }: Props) {
 	return (
 		<Pressable style={styles.card} onPress={() => onPress(pokemon.id)}>
+			<View style={styles.infoContainer}>
+				<Image
+					source={{ uri: pokemon.image }}
+					style={styles.image}
+					contentFit="contain"
+					cachePolicy="memory-disk"
+					priority="normal"
+					transition={150}
+				/>
+				<View style={styles.info}>
+					<Text style={styles.id}>{formatPokemonId(pokemon.id)}</Text>
+					<Text style={styles.name}>{pokemon.name}</Text>
+				</View>
+			</View>
 			<FavoriteIcon
 				isFavorite={!!isFavorite}
 				size={36}
 				onPress={() => onToggleFavorite?.(pokemon)}
 			/>
-
-			<Image
-				source={{ uri: pokemon.image }}
-				style={styles.image}
-				contentFit="contain"
-				cachePolicy="memory-disk"
-				priority="normal"
-				transition={150}
-			/>
-			<View style={styles.info}>
-				<Text style={styles.id}>{formatPokemonId(pokemon.id)}</Text>
-				<Text style={styles.name}>{pokemon.name}</Text>
-			</View>
 		</Pressable>
 	);
 }

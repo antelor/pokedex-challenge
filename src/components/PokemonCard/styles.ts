@@ -4,6 +4,7 @@ export const styles = StyleSheet.create({
   card: {
     flexDirection: "row",
     alignItems: "center",
+    justifyContent: "space-between",
     backgroundColor: "#fff",
     borderRadius: 16,
     padding: 16,
@@ -68,11 +69,10 @@ export const styles = StyleSheet.create({
     borderRadius: 4,
     backgroundColor: "#E5E7EB",
   },
-  favoriteButton: {
-    position: "absolute",
-    top: 8,
-    right: 8,
-    zIndex: 1,
-    padding: 4,
-  },
+  infoContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    flex: 1,
+  }
 });
