@@ -53,6 +53,8 @@ export const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    marginRight: 16,
+    marginHorizontal: 16,
+    marginTop: 8,
+    gap: 4
   }
 });

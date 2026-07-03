@@ -109,6 +109,8 @@ export default function Home() {
 				refreshing={isRefetching}
 				onRefresh={refetch}
 				ListEmptyComponent={hasSearch ? <HomeSearchEmpty /> : null}
+				keyboardDismissMode="on-drag"
+				keyboardShouldPersistTaps="handled"
 			/>
 		</View>
 	);

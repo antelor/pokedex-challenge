@@ -2,21 +2,21 @@ import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
   container: {
-    backgroundColor: "white",
-    paddingHorizontal: 16,
-    paddingVertical: 8,
-    borderRadius: 16,
-    alignItems: "center",
-    justifyContent: "center",
+    alignSelf: "center",
     flexDirection: "row",
-    gap: 4
+    alignItems: "center",
+    gap: 8,
+    paddingHorizontal: 16,
+    paddingVertical: 10,
+    borderRadius: 20,
+    backgroundColor: "#fff",
   },
   pressed: {
     opacity: 0.8,
   },
   text: {
-    color: "#ef5350",
     fontSize: 16,
     fontWeight: "600",
+    color: "#ef5350",
   },
 });

@@ -1,10 +1,9 @@
-import { Pressable, Text } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 
-import { RootStackParamList } from "../../navigation";
-import { styles } from "./styles";
 import { Ionicons } from "@expo/vector-icons";
+import { RootStackParamList } from "../../navigation";
+import Button from "../Button";
 
 interface Props {
 	maxPokemonId: number;
@@ -21,12 +20,10 @@ export default function RandomPokemonButton({ maxPokemonId }: Props) {
 	};
 
 	return (
-		<Pressable
+		<Button
+			title="Random"
 			onPress={handlePress}
-			style={({ pressed }) => [styles.container, pressed && styles.pressed]}
-		>
-			<Text style={styles.text}>Random</Text>
-			<Ionicons name="shuffle" size={20} color="#ef5350" />
-		</Pressable>
+			icon={<Ionicons name="shuffle" size={20} color="#ef5350" />}
+		/>
 	);
 }

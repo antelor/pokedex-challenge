@@ -4,4 +4,5 @@ export interface FavoritesContextValue {
     favorites: PokemonListItem[];
     isFavorite: (id: number) => boolean;
     toggleFavorite: (pokemon: PokemonListItem) => Promise<void>;
+    clearFavorites: () => void;
 }

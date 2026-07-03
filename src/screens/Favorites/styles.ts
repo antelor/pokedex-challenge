@@ -5,6 +5,24 @@ export const styles = StyleSheet.create({
     flex: 1,
   },
   list: {
-    padding: 16,
+    paddingHorizontal: 16,
   },
+  clearButton: {
+    backgroundColor: "#ef5350",
+    padding: 12,
+    borderRadius: 8,
+    marginBottom: 16,
+  },
+  clearButtonText: {
+    color: "white",
+    fontWeight: "bold",
+    textAlign: "center",
+  },
+  header:{
+    justifyContent: "center",
+    alignItems: "center",
+    marginBottom: 16,
+    marginTop: 12,
+    paddingTop: 4
+  }
 });

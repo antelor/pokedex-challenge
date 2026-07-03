@@ -18,6 +18,11 @@ export const FavoritesContext = createContext<FavoritesContextValue | null>(
 export function FavoritesProvider({ children }: PropsWithChildren) {
 	const [favorites, setFavorites] = useState<PokemonListItem[]>([]);
 
+	const clearFavorites = useCallback(async () => {
+		setFavorites([]);
+		await saveFavorites([]);
+	}, []);
+
 	useEffect(() => {
 		getFavorites().then(setFavorites);
 	}, []);
@@ -43,8 +48,9 @@ export function FavoritesProvider({ children }: PropsWithChildren) {
 			favorites,
 			isFavorite,
 			toggleFavorite,
+			clearFavorites,
 		}),
-		[favorites, isFavorite, toggleFavorite],
+		[favorites, isFavorite, toggleFavorite, clearFavorites],
 	);
 
 	return (
