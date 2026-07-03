@@ -6,37 +6,32 @@ import { RootStackParamList } from "../../navigation";
 import { usePokemon } from "../../hooks/usePokemon";
 import { styles } from "./styles";
 import PokemonDetail from "../../components/PokemonDetail";
-/* import DetailSkeleton from "./components/DetailSkeleton";
- */
+
 type Props = NativeStackScreenProps<RootStackParamList, "Detail">;
 
 export default function Detail({ route }: Props) {
-  const { id } = route.params;
+	const { id } = route.params;
 
-  const { data, isError, isLoading } = usePokemon(id);
+	const { data, isError, isLoading } = usePokemon(id);
 
-/*   if (isLoading) {
-    return <DetailSkeleton />;
-  }
+	if (isError || !data) {
+		return (
+			<SafeAreaView style={styles.center}>
+				<Text style={styles.error}>Failed to load Pokémon</Text>
+			</SafeAreaView>
+		);
+	}
 
- */  if (isError || !data) {
-    return (
-      <SafeAreaView style={styles.center}>
-        <Text style={styles.error}>Failed to load Pokémon</Text>
-      </SafeAreaView>
-    );
-  }
-
-  return (
-    <SafeAreaView style={styles.container}>
-      <ScrollView contentContainerStyle={styles.content}>
-        <PokemonDetail pokemon={data}>
-          <PokemonDetail.Header />
-          <PokemonDetail.Types />
-          <PokemonDetail.Abilities />
-          <PokemonDetail.Stats />
-        </PokemonDetail>
-      </ScrollView>
-    </SafeAreaView>
-  );
+	return (
+		<SafeAreaView style={styles.container}>
+			<ScrollView contentContainerStyle={styles.content}>
+				<PokemonDetail pokemon={data}>
+					<PokemonDetail.Header />
+					<PokemonDetail.Types />
+					<PokemonDetail.Abilities />
+					<PokemonDetail.Stats />
+				</PokemonDetail>
+			</ScrollView>
+		</SafeAreaView>
+	);
 }

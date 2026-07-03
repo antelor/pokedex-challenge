@@ -1,11 +1,10 @@
+import { Image } from "expo-image";
 import React from "react";
 import { Pressable, Text, View } from "react-native";
 import { PokemonListItem } from "../../types/pokemon";
 import { formatPokemonId } from "../../utils/format";
-import { styles } from "./styles";
-import { Image } from "expo-image";
-import { Ionicons } from "@expo/vector-icons";
 import FavoriteButton from "../FavoriteButton";
+import { styles } from "./styles";
 interface Props {
 	pokemon: PokemonListItem;
 	isFavorite?: boolean;

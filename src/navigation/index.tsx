@@ -1,34 +1,38 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-import Home from "../screens/Home";
+import Tabs from "./Tabs";
 import Detail from "../screens/Detail";
 
 export type RootStackParamList = {
-  Home: undefined;
-  Detail: {
-    id: number;
-  };
+	Tabs: undefined;
+	Detail: {
+		id: number;
+	};
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 export default function Navigation() {
-  return (
-    <Stack.Navigator
-      screenOptions={{
-        headerTitleAlign: "center",
-      }}
-    >
-      <Stack.Screen
-        name="Home"
-        component={Home}
-        options={{ title: "Pokédex" }}
-      />
+	return (
+		<Stack.Navigator
+			screenOptions={{
+				headerTitleAlign: "center",
+			}}
+		>
+			<Stack.Screen
+				name="Tabs"
+				component={Tabs}
+				options={{ headerShown: false }}
+			/>
 
-      <Stack.Screen
-        name="Detail"
-        component={Detail}
-      />
-    </Stack.Navigator>
-  );
+			<Stack.Screen
+				name="Detail"
+				component={Detail}
+				options={{
+					headerBackTitle: "",
+					headerBackButtonDisplayMode: "minimal",
+				}}
+			/>
+		</Stack.Navigator>
+	);
 }
