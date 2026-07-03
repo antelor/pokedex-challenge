@@ -4,7 +4,6 @@ export const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#F5F5F5",
-    paddingTop: 4,
   },
   center: {
     flex: 1,
@@ -54,7 +53,7 @@ export const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
     marginHorizontal: 16,
-    marginTop: 8,
-    gap: 4
+    marginVertical: 8,
+    gap: 4,
   }
 });

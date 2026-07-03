@@ -22,7 +22,7 @@ export const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     marginBottom: 16,
-    marginTop: 12,
+    marginTop: 4.,
     paddingTop: 4
   }
 });

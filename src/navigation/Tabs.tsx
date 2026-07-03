@@ -3,6 +3,7 @@ import { Ionicons } from "@expo/vector-icons";
 import Home from "../screens/Home";
 import Favorites from "../screens/Favorites";
 import Header from "./components/Header";
+import TabBar from "./components/TabBar";
 
 export type RootTabParamList = {
 	Home: undefined;
@@ -21,8 +22,11 @@ const Tab = createBottomTabNavigator<RootTabParamList>();
 export default function Tabs() {
 	return (
 		<Tab.Navigator
+			tabBar={(props) => <TabBar {...props} />}
 			screenOptions={({ route }) => ({
 				headerTitleAlign: "center",
+				tabBarActiveTintColor: "#EF5350",
+				tabBarInactiveTintColor: "#9CA3AF",
 				tabBarIcon: ({ color, size }) => (
 					<Ionicons
 						name={route.name === "Home" ? "home" : "heart"}
