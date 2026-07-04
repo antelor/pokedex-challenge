@@ -32,7 +32,7 @@ function PokemonCard({
 						effect: "cross-dissolve",
 					}}
 					placeholder={require("../../assets/placeholder.png")}
-					placeholderContentFit="contain" 
+					placeholderContentFit="contain"
 				/>
 				<View style={styles.info}>
 					<Text style={styles.id}>{formatPokemonId(pokemon.id)}</Text>

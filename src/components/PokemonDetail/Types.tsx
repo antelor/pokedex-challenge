@@ -11,19 +11,22 @@ export default function Types() {
 	const handleToggleFavorite = () =>
 		toggleFavorite?.(convertToListItem(pokemon));
 
+	console.log(pokemon.types);
+
 	return (
 		<View style={styles.typeContainer}>
 			<View style={styles.row}>
 				{pokemon.types.map((type) => (
-					<Text
-						key={type.type.name}
+					<View
 						style={[
-							styles.badge,
+							styles.badgeContainer,
 							{ backgroundColor: getPokemonTypeColor(type.type.name) },
 						]}
 					>
-						{type.type.name}
-					</Text>
+						<Text key={type.type.name} style={styles.badge}>
+							{type.type.name}
+						</Text>
+					</View>
 				))}
 			</View>
 			<Pressable onPress={handleToggleFavorite} style={styles.favContainer}>

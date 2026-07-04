@@ -32,13 +32,14 @@ export const styles = StyleSheet.create({
     flexWrap: "wrap",
     gap: 8,
   },
-  badge: {
-    backgroundColor: "#e5e7eb",
+  badgeContainer: {
     paddingHorizontal: 12,
     paddingVertical: 6,
-    borderRadius: 16,
+    borderRadius: 999,
+  },
+  badge: {
     textTransform: "capitalize",
-    color: 'white'
+    color: 'white',
   },
   textItem: {
     fontSize: 16,
