@@ -13,7 +13,6 @@ export default function Header() {
 				}}
 				style={styles.image}
 				contentFit="contain"
-				placeholderContentFit="contain"
 				transition={{
 					duration: 300,
 					effect: "cross-dissolve",

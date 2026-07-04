@@ -1,6 +1,6 @@
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, useScrollToTop } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useMemo, useRef, useState } from "react";
 import { ActivityIndicator, FlatList, View } from "react-native";
 import PokemonCard from "../../components/PokemonCard";
 import SearchBar from "../../components/SearchBar";
@@ -22,6 +22,9 @@ export default function Home() {
 
 	const navigation =
 		useNavigation<NativeStackNavigationProp<RootStackParamList>>();
+
+	const listRef = useRef<FlatList<PokemonListItem>>(null);
+	useScrollToTop(listRef);
 
 	const {
 		data,
@@ -93,6 +96,7 @@ export default function Home() {
 			<FlatList
 				data={listData}
 				keyExtractor={(item) => item.id.toString()}
+				ref={listRef}
 				contentContainerStyle={styles.list}
 				renderItem={renderItem}
 				onEndReached={() => {
