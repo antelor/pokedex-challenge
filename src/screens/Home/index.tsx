@@ -58,20 +58,7 @@ export default function Home() {
 		),
 		[handleCardPress, isFavorite, toggleFavorite],
 	);
-
-	if (isLoading) {
-		return <HomeLoading />;
-	}
-
-	if (isError) {
-		return <HomeError error={error} />;
-	}
-
 	const pokemon = data?.pages.flatMap((page) => page.pokemon) ?? [];
-
-	if (!isLoading && pokemon.length === 0) {
-		return <HomeEmpty />;
-	}
 
 	const filteredPokemon = useMemo(() => {
 		const query = search.trim().toLowerCase();
@@ -82,6 +69,18 @@ export default function Home() {
 
 		return pokemon.filter((item) => item.name.toLowerCase().includes(query));
 	}, [pokemon, search]);
+
+	if (isLoading) {
+		return <HomeLoading />;
+	}
+
+	if (isError) {
+		return <HomeError error={error} />;
+	}
+
+	if (!isLoading && pokemon.length === 0) {
+		return <HomeEmpty />;
+	}
 
 	const hasSearch = search.trim().length > 0;
 	const listData = hasSearch ? filteredPokemon : pokemon;
