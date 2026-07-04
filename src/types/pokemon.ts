@@ -7,7 +7,6 @@ export interface PokemonListItem {
 export interface PokemonListResponse {
   pokemon: PokemonListItem[];
   next: string | null;
-  count: number;
 }
 
 export interface Pokemon {

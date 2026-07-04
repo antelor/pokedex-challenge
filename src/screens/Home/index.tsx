@@ -15,6 +15,7 @@ import { styles } from "./styles";
 import HomeSearchEmpty from "./components/HomeSearchEmpty";
 import RandomPokemonButton from "../../components/RandomPokemonButton";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { MAX_POKEMON_ID } from "../../utils/format";
 
 export default function Home() {
 	const [search, setSearch] = useState("");
@@ -33,8 +34,6 @@ export default function Home() {
 		refetch,
 		isRefetching,
 	} = usePokemonList();
-
-	const maxPokemonId = data?.pages[0].count || 1025;
 
 	const { isFavorite, toggleFavorite } = useFavorites();
 
@@ -88,7 +87,7 @@ export default function Home() {
 		<SafeAreaView style={styles.container} edges={["bottom"]}>
 			<View style={styles.btns}>
 				<SearchBar value={search} onChangeText={setSearch} />
-				<RandomPokemonButton maxPokemonId={maxPokemonId} />
+				<RandomPokemonButton maxPokemonId={MAX_POKEMON_ID} />
 			</View>
 
 			<FlatList

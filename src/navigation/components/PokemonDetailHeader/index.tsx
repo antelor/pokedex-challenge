@@ -12,7 +12,9 @@ export default function PokemonDetailHeader({
 }: NativeStackHeaderProps) {
 	const { id } = route.params as { id: number };
 	const insets = useSafeAreaInsets();
-	const { data: pokemon } = usePokemon(id);
+	const { data: pokemon, isLoading } = usePokemon(id);
+
+	if (isLoading) return null;
 
 	return (
 		<View style={[styles.container, { paddingTop: insets.top }]}>

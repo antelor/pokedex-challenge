@@ -1,24 +1,26 @@
-import { Text, ScrollView } from "react-native";
+import { Text, ScrollView, ActivityIndicator } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { RootStackParamList } from "../../navigation";
 import { usePokemon } from "../../hooks/usePokemon";
 import { styles } from "./styles";
 import PokemonDetail from "../../components/PokemonDetail";
+import DetailLoading from "./components/DetailLoading";
+import DetailError from "./components/DetailError";
 
 type Props = NativeStackScreenProps<RootStackParamList, "Detail">;
 
 export default function Detail({ route }: Props) {
 	const { id } = route.params;
 
-	const { data, isError } = usePokemon(id);
+	const { data, isError, isLoading } = usePokemon(id);
+
+	if (isLoading) {
+		return <DetailLoading />;
+	}
 
 	if (isError || !data) {
-		return (
-			<SafeAreaView style={styles.center}>
-				<Text style={styles.error}>Failed to load Pokémon</Text>
-			</SafeAreaView>
-		);
+		return <DetailError />;
 	}
 
 	return (

@@ -1,4 +1,4 @@
-import { Image } from "react-native";
+import { Image } from "expo-image";
 import { usePokemonDetail } from "./PokemonDetailContext";
 import { styles } from "./styles";
 
@@ -12,6 +12,12 @@ export default function Header() {
 					uri: pokemon.sprites.other["official-artwork"].front_default,
 				}}
 				style={styles.image}
+				contentFit="contain"
+				placeholderContentFit="contain"
+				transition={{
+					duration: 300,
+					effect: "cross-dissolve",
+				}}
 			/>
 		</>
 	);

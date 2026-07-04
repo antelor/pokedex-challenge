@@ -39,7 +39,6 @@ export async function getPokemonPage(
   return {
     pokemon,
     next: data.next,
-    count: data.count,
   };
 }
 

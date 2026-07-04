@@ -1,5 +1,7 @@
 import { Pokemon, PokemonListItem } from "../types/pokemon";
 
+export const MAX_POKEMON_ID = 1025;
+
 const POKEMON_TYPE_COLORS = {
   normal: "#A8A77A",
   fire: "#EE8130",

@@ -27,7 +27,12 @@ function PokemonCard({
 					contentFit="contain"
 					cachePolicy="memory-disk"
 					priority="normal"
-					transition={150}
+					transition={{
+						duration: 300,
+						effect: "cross-dissolve",
+					}}
+					placeholder={require("../../assets/placeholder.png")}
+					placeholderContentFit="contain" 
 				/>
 				<View style={styles.info}>
 					<Text style={styles.id}>{formatPokemonId(pokemon.id)}</Text>
