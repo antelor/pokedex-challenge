@@ -33,23 +33,6 @@ export const styles = StyleSheet.create({
     fontWeight: "600",
     textTransform: "capitalize",
   },
-
-  skeletonImage: {
-    width: 80,
-    height: 80,
-    borderRadius: 40,
-  },
-  skeletonId: {
-    width: 48,
-    height: 12,
-    borderRadius: 6,
-    marginBottom: 8,
-  },
-  skeletonName: {
-    width: 110,
-    height: 20,
-    borderRadius: 6,
-  },
   imageSkeleton: {
     width: 80,
     height: 80,
