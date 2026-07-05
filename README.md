@@ -18,13 +18,13 @@
 
 ## Funcionalidades
 
-- Listado de Pokémon con carga paginada (Infinite Scroll) y persistencia en local durante una semana.
+- Listado de Pokémon con carga paginada (Infinite Scroll) y persistencia en local.
+- Imágenes con placeholder mediante Expo Image.
 - Búsqueda de Pokémon por nombre.
 - Vista de detalle de cada Pokémon con animaciones de carga presentando información de estadísticas, tipos y características.
 - Botón para navegar al detalle de un Pokémon aleatorio.
 - Sistema de favoritos persistente mediante AsyncStorage, con listado y botón de eliminación total.
 - Estados de carga, error y lista vacía.
-- Imágenes con placeholder mediante Expo Image.
 - Pruebas End-to-End utilizando Maestro.
 
 ## Consideraciones
