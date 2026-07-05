@@ -13,6 +13,7 @@ export const styles = StyleSheet.create({
   },
   list: {
     paddingHorizontal: 16,
+    flexGrow: 1
   },
   card: {
     flexDirection: "row",
