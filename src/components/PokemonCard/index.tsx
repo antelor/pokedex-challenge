@@ -19,7 +19,11 @@ function PokemonCard({
 	isFavorite,
 }: Props) {
 	return (
-		<Pressable style={styles.card} onPress={() => onPress(pokemon.id)}>
+		<Pressable
+			style={styles.card}
+			onPress={() => onPress(pokemon.id)}
+			testID={`pokemon-card-${pokemon.id}`}
+		>
 			<View style={styles.infoContainer}>
 				<Image
 					source={{ uri: pokemon.image }}

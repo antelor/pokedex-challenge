@@ -7,12 +7,14 @@ interface Props {
   title: string;
   onPress: () => void;
   icon?: ReactNode;
+  testID?: string;
 }
 
 export default function Button({
   title,
   onPress,
   icon,
+  testID
 }: Props) {
   return (
     <Pressable
@@ -21,6 +23,7 @@ export default function Button({
         styles.container,
         pressed && styles.pressed,
       ]}
+      testID={testID}
     >
       <Text style={styles.text}>{title}</Text>
 

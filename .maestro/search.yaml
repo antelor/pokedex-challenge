@@ -1,0 +1,11 @@
+appId: com.antelor.pokedexchallenge
+
+---
+- launchApp
+
+- tapOn:
+    id: "search-input"
+
+- inputText: "charmander"
+
+- assertVisible: "Charmander"

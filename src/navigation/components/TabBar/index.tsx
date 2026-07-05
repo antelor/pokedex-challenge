@@ -8,19 +8,19 @@ import { ComponentProps } from "react";
 type TabName = "Home" | "Favorites";
 
 type TabConfig = {
-  icon: ComponentProps<typeof Ionicons>["name"];
-  label: string;
+	icon: ComponentProps<typeof Ionicons>["name"];
+	label: string;
 };
 
 const TAB_CONFIG: Record<TabName, TabConfig> = {
-  Home: {
-    icon: "home",
-    label: "Home",
-  },
-  Favorites: {
-    icon: "heart",
-    label: "Favorites",
-  },
+	Home: {
+		icon: "home",
+		label: "Home",
+	},
+	Favorites: {
+		icon: "heart",
+		label: "Favorites",
+	},
 };
 export default function TabBar({ state, navigation }: BottomTabBarProps) {
 	const { bottom } = useSafeAreaInsets();
@@ -38,7 +38,7 @@ export default function TabBar({ state, navigation }: BottomTabBarProps) {
 				const focused = state.index === index;
 
 				const config = TAB_CONFIG[route.name as TabName];
-                
+
 				const color = focused ? "#EF5350" : "#9CA3AF";
 
 				const onPress = () => {
@@ -57,7 +57,11 @@ export default function TabBar({ state, navigation }: BottomTabBarProps) {
 					<View key={route.key} style={styles.itemContainer}>
 						{index === 1 && <View style={styles.divider} />}
 
-						<Pressable onPress={onPress} style={styles.item}>
+						<Pressable
+							onPress={onPress}
+							style={styles.item}
+							testID={`${route.name.toLowerCase()}-tab`}
+						>
 							<Ionicons name={config.icon} size={24} color={color} />
 
 							<Text style={[styles.label, focused && styles.activeLabel]}>

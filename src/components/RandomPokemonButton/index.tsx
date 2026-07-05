@@ -24,6 +24,7 @@ export default function RandomPokemonButton({ maxPokemonId }: Props) {
 			title="Random"
 			onPress={handlePress}
 			icon={<Ionicons name="shuffle" size={20} color="#ef5350" />}
+			testID='random-button'
 		/>
 	);
 }

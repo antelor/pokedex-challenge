@@ -1,0 +1,28 @@
+appId: com.antelor.pokedexchallenge
+
+---
+- launchApp
+
+- tapOn:
+    id: "pokemon-card-1"
+
+- tapOn:
+    id: "favorite-button"
+
+- back
+
+- tapOn:
+    id: "favorites-tab"
+
+- assertVisible: "Bulbasaur"
+
+- tapOn:
+    id: "home-tab"
+
+- tapOn:
+    id: "favorite-button"
+
+- tapOn:
+    id: "favorites-tab"
+
+- assertNotVisible: "Bulbasaur"

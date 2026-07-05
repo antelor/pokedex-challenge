@@ -114,6 +114,7 @@ export default function Home() {
 				ListEmptyComponent={hasSearch ? <HomeSearchEmpty /> : null}
 				keyboardDismissMode="on-drag"
 				keyboardShouldPersistTaps="handled"
+				testID="pokemon-list"
 			/>
 		</SafeAreaView>
 	);

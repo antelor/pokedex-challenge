@@ -1,0 +1,11 @@
+appId: com.antelor.pokedexchallenge
+
+---
+
+- launchApp
+
+- assertVisible:
+    id: "pokemon-list"
+
+- assertVisible:
+    id: "pokemon-card-1"

@@ -1,0 +1,17 @@
+appId: com.antelor.pokedexchallenge
+
+---
+
+- launchApp
+
+- tapOn:
+    id: "pokemon-card-1"
+
+- assertVisible:
+    id: "pokemon-image"
+
+- assertVisible: "Bulbasaur"
+
+- assertVisible: "#001"
+
+- assertVisible: "Base stats"

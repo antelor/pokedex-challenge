@@ -23,6 +23,7 @@ export default function FavoriteIcon({
 				e.stopPropagation();
 				onPress?.();
 			}}
+			testID="favorite-button"
 		>
 			<Ionicons
 				name={isFavorite ? "heart" : "heart-outline"}

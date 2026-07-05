@@ -1,0 +1,16 @@
+appId: com.antelor.pokedexchallenge
+
+---
+
+- launchApp
+
+- assertVisible:
+    id: "pokemon-card-1"
+
+- scrollUntilVisible:
+    element:
+      id: "pokemon-card-25"
+    direction: DOWN
+
+- assertVisible:
+    id: "pokemon-card-25"

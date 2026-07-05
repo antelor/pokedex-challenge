@@ -17,6 +17,7 @@ export default function Header() {
 					duration: 300,
 					effect: "cross-dissolve",
 				}}
+				testID="pokemon-image"
 			/>
 		</>
 	);

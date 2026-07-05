@@ -1,0 +1,12 @@
+appId: com.antelor.pokedexchallenge
+
+---
+- launchApp
+
+- tapOn:
+    id: "random-button"
+
+- assertVisible:
+    id: "pokemon-image"
+
+- assertVisible: "Base stats"

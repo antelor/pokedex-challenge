@@ -23,6 +23,7 @@ export default function SearchBar({
         autoCorrect={false}
         clearButtonMode="while-editing"
         returnKeyType="search"
+        testID="search-input"
       />
     </View>
   );
