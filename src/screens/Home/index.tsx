@@ -58,7 +58,11 @@ export default function Home() {
 		),
 		[handleCardPress, isFavorite, toggleFavorite],
 	);
-	const pokemon = data?.pages.flatMap((page) => page.pokemon) ?? [];
+
+	const pokemon = useMemo(
+		() => data?.pages.flatMap((page) => page.pokemon) ?? [],
+		[data],
+	);
 
 	const filteredPokemon = useMemo(() => {
 		const query = search.trim().toLowerCase();
@@ -85,6 +89,12 @@ export default function Home() {
 	const hasSearch = search.trim().length > 0;
 	const listData = hasSearch ? filteredPokemon : pokemon;
 
+	const handleEndReached = useCallback(() => {
+		if (hasNextPage && !isFetchingNextPage) {
+			fetchNextPage();
+		}
+	}, [hasNextPage, isFetchingNextPage, fetchNextPage]);
+
 	return (
 		<SafeAreaView style={styles.container} edges={["bottom"]}>
 			<View style={styles.btns}>
@@ -98,11 +108,7 @@ export default function Home() {
 				ref={listRef}
 				contentContainerStyle={styles.list}
 				renderItem={renderItem}
-				onEndReached={() => {
-					if (hasNextPage && !isFetchingNextPage) {
-						fetchNextPage();
-					}
-				}}
+				onEndReached={handleEndReached}
 				onEndReachedThreshold={0.5}
 				ListFooterComponent={
 					isFetchingNextPage ? (
