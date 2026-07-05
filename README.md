@@ -1,9 +1,10 @@
 # Pokedex Challenge
-<p align="center">
+<div style="display: flex; justify-content: flex-start; align-items: flex-start; gap: 10px;">
   <img src="assets/screen1.png" width="30%" />
   <img src="assets/screen2.png" width="30%" />
   <img src="assets/screen3.png" width="30%" />
-</p>
+</div>
+
 ## Tecnologías utilizadas
 
 - React Native
