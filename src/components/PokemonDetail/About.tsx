@@ -5,9 +5,10 @@ import { formatName, getPokemonTypeColor } from "../../utils/format";
 
 export default function About() {
 	const pokemon = usePokemonDetail();
-	const height = pokemon.height / 10;
-	const weight = pokemon.weight / 10;
-	const typeColor = getPokemonTypeColor(pokemon.types[0].type.name);
+	const height = `${pokemon.height / 10} m`;
+	const weight = `${pokemon.weight / 10} kg`;
+	const abilities = pokemon.abilities ?? [];
+	const typeColor = getPokemonTypeColor(pokemon.types?.[0]?.type?.name);
 
 	return (
 		<View style={styles.section}>
@@ -16,7 +17,7 @@ export default function About() {
 			<View style={styles.row}>
 				<View style={styles.column}>
 					<View style={styles.valueContainer}>
-						<Text style={styles.value}>{weight} kg</Text>
+						<Text style={styles.value}>{weight}</Text>
 					</View>
 					<Text style={styles.label}>Weight</Text>
 				</View>
@@ -25,7 +26,7 @@ export default function About() {
 
 				<View style={styles.column}>
 					<View style={styles.valueContainer}>
-						<Text style={styles.value}>{height} m</Text>
+						<Text style={styles.value}>{height}</Text>
 					</View>
 					<Text style={styles.label}>Height</Text>
 				</View>
@@ -34,7 +35,7 @@ export default function About() {
 
 				<View style={styles.column}>
 					<View style={styles.valueContainer}>
-						{pokemon.abilities.map(({ ability }) => (
+						{abilities.map(({ ability }) => (
 							<Text
 								key={ability.name}
 								style={styles.value}

@@ -7,7 +7,7 @@ import FavoriteIcon from "../FavoriteIcon";
 import { styles } from "./styles";
 interface Props {
 	pokemon: PokemonListItem;
-	isFavorite?: boolean;
+	isFavorite: boolean;
 	onPress: (id: number) => void;
 	onToggleFavorite?: (pokemon: PokemonListItem) => void;
 }
@@ -18,15 +18,25 @@ function PokemonCard({
 	onToggleFavorite,
 	isFavorite,
 }: Props) {
+	const imageUri = pokemon.image;
+
+	const handlePress = () => onPress(pokemon.id);
+
+	const handleFavorite = () => onToggleFavorite?.(pokemon);
+
 	return (
 		<Pressable
 			style={styles.card}
-			onPress={() => onPress(pokemon.id)}
+			onPress={handlePress}
 			testID={`pokemon-card-${pokemon.id}`}
 		>
 			<View style={styles.infoContainer}>
 				<Image
-					source={{ uri: pokemon.image }}
+					source={
+						imageUri
+							? { uri: imageUri }
+							: require("../../assets/placeholder.png")
+					}
 					style={styles.image}
 					contentFit="contain"
 					cachePolicy="memory-disk"
@@ -44,9 +54,9 @@ function PokemonCard({
 				</View>
 			</View>
 			<FavoriteIcon
-				isFavorite={!!isFavorite}
+				isFavorite={isFavorite}
 				size={36}
-				onPress={() => onToggleFavorite?.(pokemon)}
+				onPress={handleFavorite}
 			/>
 		</Pressable>
 	);

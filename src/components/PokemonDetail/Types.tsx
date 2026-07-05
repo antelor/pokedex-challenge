@@ -11,28 +11,28 @@ export default function Types() {
 	const handleToggleFavorite = () =>
 		toggleFavorite?.(convertToListItem(pokemon));
 
+	const favorite = isFavorite(pokemon.id);
+
+	if (!pokemon.types) return null;
+
 	return (
 		<View style={styles.typeContainer}>
 			<View style={styles.row}>
-				{pokemon.types.map((type) => (
+				{pokemon.types?.map((type) => (
 					<View
 						style={[
 							styles.badgeContainer,
-							{ backgroundColor: getPokemonTypeColor(type.type.name) },
+							{ backgroundColor: getPokemonTypeColor(type?.type?.name) },
 						]}
-						key={type.type.name}
+						key={type?.type?.name}
 					>
-						<Text key={type.type.name} style={styles.badge}>
-							{type.type.name}
-						</Text>
+						<Text style={styles.badge}>{type?.type?.name}</Text>
 					</View>
 				))}
 			</View>
 			<Pressable onPress={handleToggleFavorite} style={styles.favContainer}>
-				<Text>
-					{isFavorite(pokemon.id) ? "Remove from" : "Add to"} favorites
-				</Text>
-				<FavoriteIcon isFavorite={!!isFavorite(pokemon.id)} size={24} />
+				<Text>{favorite ? "Remove from" : "Add to"} favorites</Text>
+				<FavoriteIcon isFavorite={favorite} size={24} />
 			</Pressable>
 		</View>
 	);

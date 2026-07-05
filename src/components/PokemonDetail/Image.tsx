@@ -5,12 +5,14 @@ import { styles } from "./styles";
 export default function Header() {
 	const pokemon = usePokemonDetail();
 
+	const imageUri = pokemon.sprites?.other?.["official-artwork"]?.front_default;
+
 	return (
 		<>
 			<Image
-				source={{
-					uri: pokemon.sprites.other["official-artwork"].front_default,
-				}}
+				source={
+					imageUri ? { uri: imageUri } : require("../../assets/placeholder.png")
+				}
 				style={styles.image}
 				contentFit="contain"
 				transition={{

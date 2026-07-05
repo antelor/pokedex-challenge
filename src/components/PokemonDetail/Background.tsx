@@ -6,7 +6,7 @@ import { Image } from "expo-image";
 
 export default function Background() {
 	const pokemon = usePokemonDetail();
-	const typeColor = getPokemonTypeColor(pokemon.types[0].type.name);
+	const typeColor = getPokemonTypeColor(pokemon.types?.[0]?.type?.name);
 
 	return (
 		<View

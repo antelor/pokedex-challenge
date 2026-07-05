@@ -7,6 +7,8 @@ export default function Stats() {
 	const pokemon = usePokemonDetail();
 	const typeColor = getPokemonTypeColor(pokemon.types[0].type.name);
 
+	if (!pokemon.stats) return null;
+
 	return (
 		<View style={styles.section}>
 			<Text style={[styles.title, { color: typeColor }]}>Base stats</Text>

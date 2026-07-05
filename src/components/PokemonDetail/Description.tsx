@@ -6,7 +6,7 @@ import { getPokemonTypeColor } from "../../utils/format";
 
 export default function Description() {
 	const pokemon = usePokemonDetail();
-	const typeColor = getPokemonTypeColor(pokemon.types[0].type.name);
+	const typeColor = getPokemonTypeColor(pokemon.types?.[0]?.type?.name);
 
 	if (!pokemon.description) return null;
 
